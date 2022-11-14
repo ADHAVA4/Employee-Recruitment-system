@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registration Form</title>
+        
+        <style>
+/*body {
+  background-image: url("p1.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+h1   {color: blue;}
+p    {color: red;}
+table {border-collapse:separate;
+            width:400px;
+            border-spacing:10px;
+  border: 1px solid;
+}*/
+
+body {
+  background-image: url("p1.jpg");
+    background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+}
+
+form {
+  background: rgba(255,255,255,0.3);
+  padding: 3em;
+  height: 320px;
+  border-radius: 20px;
+  border-left: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  
+  p {
+    font-weight: 500;
+    color: #fff;
+    opacity: 0.7;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 12px;
+    
+    &:hover {
+      text-shadow: 2px 2px 6px #00000040;
+    }
+    
+    &:active {
+      text-shadow: none;
+    }
+  }
+  
+  input {
+    background: transparent;
+    width: 200px;
+    padding: 1em;
+    margin-bottom: 2em;
+    border: none;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    border-top: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5000px;
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0,0,0,0.2);
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    
+    &:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+    }
+    
+    &[type="email"],
+    &[type="password"] {
+      
+      &:focus {
+        background: rgba(255,255,255,0.1);
+        box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+      }
+    }
+    
+    &[type="button"] {
+      margin-top: 10px;
+      width: 150px;
+      font-size: 1rem;
+      
+      &:hover {
+        cursor: pointer;
+      }
+      
+      &:active {
+        background: rgba(255,255,255,0.2);
+      }
+    }
+  }
+  
+  &:hover {
+    margin: 4px;
+  }
+}
+
+::placeholder {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+a,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+
+
+
+.button:hover {background-color: lightskyblue}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+</style>
+        
+        
+            <script><!-- comment -->
+                function validate()
+{
+  var phoneno = /^\d{10}$/;
+  var inputtxt= document.getElementById("contact");
+  if((inputtxt.value.match(phoneno)))
+  {
+      return true;
+        }
+      else
+        {
+        alert("only 10 digit phone numbers are allowed");
+        return false;
+        }
+   
+}
+                </script>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+.button {
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: fixed;
+  padding: 20px;
+  margin-top: 10px;
+  right: 10%;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "✖";
+}
+
+
+
+</style>
+    </head>
+    <body><div class="container">
+        <div align="center">
+  <h1>Employee Register Form</h1>
+  <form action="EmployeeServlet" onsubmit="return validate()" method="post">
+   <table style="with: 80%">
+    <tr>
+     <td>First Name</td>
+     <td><input type="text" name="firstName" required /></td>
+    </tr>
+    <tr>
+     <td>Last Name</td>
+     <td><input type="text" name="lastName" /></td>
+    </tr>
+    <tr>
+     <td>UserName</td>
+     <td><input type="text" name="username" required /></td>
+    </tr>
+    <tr><td><label for="psw">Password</label></td>
+        <td><input type="password" id="psw" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required></td></tr>
+    <!--<tr>
+     <td>Password</td>
+     <td><input type="password" name="password" required /></td>
+    </tr>-->
+    <tr>
+     <td>Location(District)</td>
+     <td><input type="text" name="address" required /></td>
+    </tr>
+    <tr>
+     <td>Contact No</td>
+     <td><input type="number" id="contact" name="contact" required /></td>
+    </tr>
+    <tr>
+        <td> Qualification</td>
+        <td><select name="qualification" required>
+                <option value="DCS">DCS</option>
+                <option value="SS">SS</option>
+                <option value="DS">DS</option>
+                <option value="AIML">AIML</option>
+                <option value="OTHERS">OTHERS</option>
+            </select><!--  --><!-- comment -->
+        </td>
+    </tr><!-- comment -->
+    <tr>
+        <td>Designation Preffered:</td>
+        <td> <select name="Design" required>
+                <option value="HR">HR</option>
+                <option value="Programmer">Programmer</option>
+                <option value="Data Analyst">Data Analyst</option>
+             
+            </select> </td>
+    </tr>
+   </table>
+      <button type="submit" value="Submit" class="button" >Submit</button> 
+      <button type="reset" class="button" value="Reset"> Reset</button>
+  </form>
+    <div id="message">
+  <h3>Password must contain the following:</h3>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+    </div>
+ </div>
+        </div> 
+    
+    
+    
+    <script>
+var myInput = document.getElementById("psw");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+// When the user clicks on the password field, show the message box
+myInput.onfocus = function() {
+  document.getElementById("message").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+myInput.onblur = function() {
+  document.getElementById("message").style.display = "none";
+}
+
+// When the user starts to type something inside the password field
+myInput.onkeyup = function() {
+  // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+</script>
+</body>
+</html>
