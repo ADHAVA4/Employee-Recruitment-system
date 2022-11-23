@@ -1,1 +1,1 @@
-
+Employee Recruitment System is a webapplication that allows applicants to login,view their status,apply for a position.HR login is also provided for shortlisting the candidiates.MVC Architecture has been used to develop the application
